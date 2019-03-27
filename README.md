@@ -51,7 +51,7 @@ self-study react and summarize
   - 二者区别：
   1. 有 state 的时候使用 class，纯函数使用 function
   2. 任何组件的 attribute 都是挂载在 props
-  ***
+     ***
   
   ##### (3.2) state 和 props： 
   * 组件无论是哪种方式声明，都不能修改自身的 props。所有 react 组件，都必须像保护纯函数一样，保护它们的 props 不被更改
