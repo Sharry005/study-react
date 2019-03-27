@@ -8,3 +8,4 @@ self-study react and summarize
    * Redux 是单项数据流， store 只能通过 reducer 获取， reducer 只能由 action 改变。
    * Redux 中的 API： subscribe, dispatch, getState<br>
    [redux简单示例](https://codesandbox.io/s/l5moll9moq)
+---------------------
