@@ -77,3 +77,21 @@ self-study react and summarize
   ```
   
   * 当 input 当中有 value 的时候，要么加 onChange 事件，要么设置 readOnly = {true}
+      ***
+  
+  ##### (3.4) 组件通信的几种方式：
+  * 父组件向子组件通信  
+    react 数据流是单向的，父组件向子组件，只需通过 props 进行传递<br>
+    [简单示例Child and Parent](https://codesandbox.io/s/pwyzjyrqwj)  
+  * 子组件向父组件通信
+    1. 利用回调函数
+    2. 利用自定义事件机构
+    [简单示例CallbackParent](https://codesandbox.io/s/pwyzjyrqwj)
+  * 跨级组件通信
+    1. 层层组件传递 props
+       例如：组件A 和 组件B 之间要进行通信，先找到 组件A 和 组件B 公共的父组件C，A 先向 C 通信， C 通过 props 和 B 通信，此时 C 起到的就是一个中间件的作用
+    2. 使用 context<br>
+      (1) context 是一个全局变量，在任何地方都可以访问到它。将通信的信息放到 context 上，然后可以在其它组件中随意取到；<br>
+      (2) React 官方不建议大量使用 context, 尽管它可以减少逐层传递。理由： <br>
+          * 组件结构复杂时，我们并不知道 context 是从哪里传递过来
+          * context 是一个全局变量，全库变量正是导致应用走向混乱的罪魁祸首
