@@ -97,7 +97,8 @@ self-study react and summarize
           * context 是一个全局变量，全库变量正是导致应用走向混乱的罪魁祸首
             [context简单示例 ListParent](https://codesandbox.io/s/pwyzjyrqwj)
    * 没有嵌套关系的组件通信
-      * 使用自定义事件机制
-      (1) 在 ComponentDidMount 事件中，如果组件挂载完成，再订阅事件；在组件卸载的时候，在 ComponentWillUnmount 事件中取消事件的订阅
-      (2) 常用的发布 / 订阅模式举例，借用 Node.js Events 模块的浏览器版实现
+      * 使用自定义事件机制<br>
+      (1) 在 ComponentDidMount 事件中，如果组件挂载完成，再订阅事件；在组件卸载的时候，在 ComponentWillUnmount 事件中取消事件的订阅<br>
+      (2) 常用的发布 / 订阅模式举例，借用 Node.js Events 模块的浏览器版实现<br>
+      (3) 自定义事件是典型的发布订阅模式，通过向事件上添加监听事件 和 触发事件来实现组件间的通信<br>
       [无嵌套关系组件简单示例](https://codesandbox.io/s/lyz6o49wzq)
