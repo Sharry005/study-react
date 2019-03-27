@@ -51,6 +51,7 @@ self-study react and summarize
   - 二者区别：
   1. 有 state 的时候使用 class，纯函数使用 function
   2. 任何组件的 attribute 都是挂载在 props
+  ***
   
   ##### (3.2) state 和 props： 
   * 组件无论是哪种方式声明，都不能修改自身的 props。所有 react 组件，都必须像保护纯函数一样，保护它们的 props 不被更改
@@ -59,3 +60,20 @@ self-study react and summarize
   * setState 的同步异步问题：(暂时没有弄懂)
     1. 在 react 生命周期或者 React event hadnler 是异步
     2. 延时回调或者原生事件，不一定是异步，因为没有经过 react 的事物流
+    ***
+  ##### (3.3) 两种事件传参的调用方式：(暂时缺少 demo，不是很理解)
+  * 匿名函数的写法,此时不会立即执行，点击按钮的时候，匿名函数返回 this.changeName 立即执行
+  
+  ```
+  <button onClick={() => this.changeName('Sharry is happy')}>change state use anonymous function</button>
+  <input type="text" onChange={(e) => this.changeNameWithInput(e) value={this.state.name}} />
+  ```
+  
+  * bing 方法
+  
+  ```
+  <button onClick={this.changeName.bind(this, 'Sharry is sad')}>change state use bind function</button>
+  <input type="text" onChange={this.changeNameWithInput.bind(this)} value={this.state.name} />
+  ```
+  
+  * 当 input 当中有 value 的时候，要么加 onChange 事件，要么设置 readOnly = {true}
