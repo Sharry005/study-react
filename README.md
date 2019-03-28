@@ -19,6 +19,7 @@ self-study react and summarize
 ---------------------
 #### 2. Hooks
    * useState 是和 function 一起使用，不能使用class.(之前 state 必须写在 class 中，useState 作者为了使 state 也可以同样使用在 function 中，所以创造了 useState)
+   <br>[简单示例](https://codesandbox.io/s/4qyqqpyvz4)
 --------
 #### 3. 基础知识 <br>
   ##### (3.1) 两种组件的定义方式： 
@@ -131,7 +132,7 @@ self-study react and summarize
    * componentDidMount: <br>
          (1) 在 render 之后执行，只执行一次，如果有一个组件树，那么执行子组件的生命周期 从父组件的render开始，直到 子组件生命周期 执行完毕才会执行父组件的 componentDidMount <br>
          (2) 可以在这里调用 ajax 请求 <br>
-         (3) 在这里创建发布订阅 (在 componentDidUnmount 中要取消订阅)
+         (3) 在这里创建发布订阅 (在 componentDidUnmount 中要取消订阅) <br>
          (4) 在这里也可以调用 setState， 会 re-render component
    * ***重新渲染 component 时的过程：<br>
         * (1) componentWillReceiveProps: 在这里可以看到即将给 render 的 state 和 props, 在这里不要改变 props 和 state 的值
