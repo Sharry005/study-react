@@ -61,8 +61,9 @@ self-study react and summarize
     1. 在 react 生命周期或者 React event hadnler 是异步
     2. 延时回调或者原生事件，不一定是异步，因为没有经过 react 的事物流
     ***
-  ##### (3.3) 两种事件传参的调用方式：(暂时缺少 demo，不是很理解)
-  * 匿名函数的写法,此时不会立即执行，点击按钮的时候，匿名函数返回 this.changeName 立即执行
+  ##### (3.3) 两种事件传参的调用方式：
+  * 匿名函数的写法,此时不会立即执行，点击按钮的时候，匿名函数返回 this.changeName 立即执行<br>
+    [匿名函数 和 bind 简单示例](https://codesandbox.io/s/3v71094m46)
   
   ```
   <button onClick={() => this.changeName('Sharry is happy')}>change state use anonymous function</button>
@@ -102,3 +103,12 @@ self-study react and summarize
       (2) 常用的发布 / 订阅模式举例，借用 Node.js Events 模块的浏览器版实现<br>
       (3) 自定义事件是典型的发布订阅模式，通过向事件上添加监听事件 和 触发事件来实现组件间的通信<br>
       [无嵌套关系组件简单示例](https://codesandbox.io/s/lyz6o49wzq)
+      ***
+   ##### (3.5) 删除list中的某一项:
+   * 引入 react-html-id 第三方库， 生成唯一的 id，采用 findIndex 找到当前的 index, 数组删除采用 splice(), 所有操作均在父组件中完成
+   
+   ##### (3.6) Fragment 用法 (React version >= 16):
+   * 包裹元素，渲染时会 remove 掉自己，不在 html 中显示
+   * 将 html 标签显示在页面上时， 可以使用 Fragment 来包裹
+   * 需要在开头进行引入 import React, {Component, Fragment} from 'react'
+   * [详细资料](https://vmo-fed.github.io/react/react-Fragments/)
