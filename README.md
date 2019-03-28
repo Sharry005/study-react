@@ -106,9 +106,50 @@ self-study react and summarize
       ***
    ##### (3.5) 删除list中的某一项:
    * 引入 react-html-id 第三方库， 生成唯一的 id，采用 findIndex 找到当前的 index, 数组删除采用 splice(), 所有操作均在父组件中完成
-   
+   * [简单示例](https://codesandbox.io/s/o45m37nl2q)
+      ***
    ##### (3.6) Fragment 用法 (React version >= 16):
    * 包裹元素，渲染时会 remove 掉自己，不在 html 中显示
    * 将 html 标签显示在页面上时， 可以使用 Fragment 来包裹
    * 需要在开头进行引入 import React, {Component, Fragment} from 'react'
    * [详细资料](https://vmo-fed.github.io/react/react-Fragments/)
+       ***
+   ##### (3.7) 生命周期:
+   <br> 生命周期是一些函数，目的是在使得可以在正确的时机做正确的事，以下是 依次执行 的生命周期
+   * constructor: <br>
+         (1) render 中渲染使用 state 时使用，如果当前 组件 没有用到 state, 可以不写<br>
+         (2) 主要是 初始化 render 时调用，只执行一次，init state 在这里执行
+   * componentWillMount: <br>
+         (1) 在 constructor 之后执行，只执行一次   <br>
+         (2) 是唯一一个在服务端渲染时执行 hook 的函数   <br>
+         (3) 此时 state 和 props 已经初始化, 但是 component 还没有渲染 render  <br>
+         (4) 可以在此处使用 setState, 举例： 假设 state 根据 props 值改变，在此 setstate 不会 re-render component, 依旧是 initial state  <br>
+         (5) 全局的一些方法可以在此定义，例如： window / document
+   * render: <br>
+         (1) 在 componentWillMount 之后执行, state / props 改变时会重新渲染 render, 故此处不能使用 setState <br>
+         (2) 假设我们有 component tree, render 时执行顺序是： sub component(顶级组件) ---->> children component 分别调用 constructor ---->> componentWillMount ---->> render, 直到 sub component finish render <br>
+   * componentDidMount:
+         (1) 在 render 之后执行，只执行一次，如果有一个组件树，那么执行子组件的生命周期 从父组件的render开始，直到 子组件生命周期 执行完毕才会执行父组件的 componentDidMount <br>
+         (2) 可以在这里调用 ajax 请求 <br>
+         (3) 在这里创建发布订阅 (在 componentDidUnmount 中要取消订阅)
+         (4) 在这里也可以调用 setState， 会 re-render component
+   * ***重新渲染 component 时的过程：
+         * (1) componentWillReceiveProps: 在这里可以看到即将给 render 的 state 和 props, 在这里不要改变 props 和 state 的值
+         * (2) shouldComponentUpdate: 是否更新组件，返回 true， 则会更新，否则不更新
+         
+         ```
+         shouldComponentUpdate(nextProps, nextState) {
+             return true;
+         }
+         ```       
+      
+        * (3) componentWillUpdate: 如果想定义一些基于 state 和 props 的变量，可以在此处定义，这里不可以使用 setState, 会重复 re-render 的过程，会陷入死循环
+        * (4) render
+        * (5) componentDidUpdate: 创建第三方 UI 库的 elements
+        
+        ```
+        componentDidUpdate(nextProps, nextState) {}
+        ```      
+        
+   * componentWillUnmount: 销毁的时候执行，可以在这里清除一些计数器
+        ***
