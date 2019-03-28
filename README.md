@@ -128,14 +128,14 @@ self-study react and summarize
    * render: <br>
          (1) 在 componentWillMount 之后执行, state / props 改变时会重新渲染 render, 故此处不能使用 setState <br>
          (2) 假设我们有 component tree, render 时执行顺序是： sub component(顶级组件) ---->> children component 分别调用 constructor ---->> componentWillMount ---->> render, 直到 sub component finish render <br>
-   * componentDidMount:
+   * componentDidMount: <br>
          (1) 在 render 之后执行，只执行一次，如果有一个组件树，那么执行子组件的生命周期 从父组件的render开始，直到 子组件生命周期 执行完毕才会执行父组件的 componentDidMount <br>
          (2) 可以在这里调用 ajax 请求 <br>
          (3) 在这里创建发布订阅 (在 componentDidUnmount 中要取消订阅)
          (4) 在这里也可以调用 setState， 会 re-render component
-   * ***重新渲染 component 时的过程：
-         * (1) componentWillReceiveProps: 在这里可以看到即将给 render 的 state 和 props, 在这里不要改变 props 和 state 的值
-         * (2) shouldComponentUpdate: 是否更新组件，返回 true， 则会更新，否则不更新
+   * ***重新渲染 component 时的过程：<br>
+        * (1) componentWillReceiveProps: 在这里可以看到即将给 render 的 state 和 props, 在这里不要改变 props 和 state 的值
+        * (2) shouldComponentUpdate: 是否更新组件，返回 true， 则会更新，否则不更新
          
          ```
          shouldComponentUpdate(nextProps, nextState) {
