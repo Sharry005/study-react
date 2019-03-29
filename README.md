@@ -103,7 +103,7 @@ self-study react and summarize
       (1) 在 ComponentDidMount 事件中，如果组件挂载完成，再订阅事件；在组件卸载的时候，在 ComponentWillUnmount 事件中取消事件的订阅<br>
       (2) 常用的发布 / 订阅模式举例，借用 Node.js Events 模块的浏览器版实现<br>
       (3) 自定义事件是典型的发布订阅模式，通过向事件上添加监听事件 和 触发事件来实现组件间的通信<br>
-      [无嵌套关系组件简单示例](https://codesandbox.io/s/lyz6o49wzq)
+      [无嵌套关系组件简单示例](https://codesandbox.io/s/qo1pj79v4)
       ***
    ##### (3.5) 删除list中的某一项:
    * 引入 react-html-id 第三方库， 生成唯一的 id，采用 findIndex 找到当前的 index, 数组删除采用 splice(), 所有操作均在父组件中完成
