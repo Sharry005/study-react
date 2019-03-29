@@ -159,4 +159,4 @@ self-study react and summarize
    <br> 了解 Pure Component 在 re-render 过程中的作用
    * setState 有一个特点：只要调用了这个方法，就会 re-render component, 它不会检查 value 的值有没有改变，为了防止 value 一样的时候还会重新渲染 render，可以采用以下方法：
      * (1) shouldComponentUpdate
-     * (2) PureComponent: 浅拷贝，一般只适用于一个 叶子组件 的情况，如果 settate 传递多维数组，一维数组相同时默认为组件没有变化，所以一般不建议使用 PureComponent (目前没有理解，这块知识欠缺)
+     * (2) PureComponent: 浅拷贝，一般只适用于一个 叶子组件 的情况，如果 setState 传递多维数组，一维数组相同时默认为组件没有变化，所以一般不建议使用 PureComponent (目前没有理解，这块知识欠缺)
