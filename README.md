@@ -107,7 +107,7 @@ self-study react and summarize
       ***
    ##### (3.5) 删除list中的某一项:
    * 引入 react-html-id 第三方库， 生成唯一的 id，采用 findIndex 找到当前的 index, 数组删除采用 splice(), 所有操作均在父组件中完成
-   * [简单示例](https://codesandbox.io/s/o45m37nl2q)
+   * [简单示例](https://codesandbox.io/s/52xr71x6xl)
       ***
    ##### (3.6) Fragment 用法 (React version >= 16):
    * 包裹元素，渲染时会 remove 掉自己，不在 html 中显示
