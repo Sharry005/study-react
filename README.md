@@ -14,6 +14,7 @@ self-study react and summarize
    * Redux 中分为 store, action, reducer 三部分。
    * Redux 是单项数据流， store 只能通过 reducer 获取， reducer 只能由 action 改变。
    * Redux 中的 API： subscribe, dispatch, getState<br>
+   [sub / pub 简单示例---采用订阅发布模式](https://codesandbox.io/s/1z1n8y01lq) <br>
    [redux简单示例](https://codesandbox.io/s/l5moll9moq) <br>
    [redux理论知识总结](https://codesandbox.io/s/l5moll9moq)
 ---------------------
