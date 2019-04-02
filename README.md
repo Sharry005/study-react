@@ -116,7 +116,8 @@ self-study react and summarize
    * 需要在开头进行引入 import React, {Component, Fragment} from 'react'
    * [详细资料](https://vmo-fed.github.io/react/react-Fragments/)
        ***
-   ##### (3.7) 生命周期:
+   ##### (3.7) 生命周期:<br>
+   [react 官网 React.Component](https://zh-hans.reactjs.org/docs/react-component.html#shouldcomponentupdate)
    <br> 生命周期是一些函数，目的是在使得可以在正确的时机做正确的事，以下是 依次执行 的生命周期
    * constructor: <br>
          (1) 如果不初始化 state 或不进行方法绑定，则不需要为 react 组件实现构造函数<br>
