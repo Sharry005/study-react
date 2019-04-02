@@ -132,7 +132,7 @@ self-study react and summarize
          }
          ```
          
-   * componentWillMount: <br>
+   * componentWillMount: (此生命周期方法即将过时，建议在代码中尽量避免使用)<br>
          (1) 在 constructor 之后执行，只执行一次   <br>
          (2) 是唯一一个在服务端渲染时执行 hook 的函数   <br>
          (3) 此时 state 和 props 已经初始化, 但是 component 还没有渲染 render  <br>
@@ -144,11 +144,16 @@ self-study react and summarize
    * componentDidMount: <br>
          (1) 在 render 之后执行，只执行一次，如果有一个组件树，那么执行子组件的生命周期 从父组件的render开始，直到 子组件生命周期 执行完毕才会执行父组件的 componentDidMount <br>
          (2) 可以在这里调用 ajax 请求 <br>
-         (3) 在这里创建发布订阅 (在 componentDidUnmount 中要取消订阅) <br>
-         (4) 在这里也可以调用 setState， 会 re-render component
+         (3) 在这里创建发布订阅,这里是比较适合添加订阅的地方 (如果添加了订阅，要记得在 componentWillUnmount 中取消订阅) <br>
+         (4) 在这里可以直接调用 setState()。它将触发渲染，但此渲染会发生在浏览器更新屏幕之前，如此保证了即使 render() 在两次调用的情况下，也不会让用户看到中间状态。但是谨慎在此处使用，因为会导致性能问题<br>
    * ***重新渲染 component 时的过程：<br>
-        * (1) componentWillReceiveProps: 在这里可以看到即将给 render 的 state 和 props, 在这里不要改变 props 和 state 的值
-        * (2) shouldComponentUpdate: 是否更新组件，返回 true， 则会更新，否则不更新
+        * (1) componentWillReceiveProps:(此生命周期方法即将过时, 建议在代码中尽量避免使用)<br>
+              在这里可以看到即将给 render 的 state 和 props, 在这里不要改变 props 和 state 的值
+        * (2) shouldComponentUpdate: <br>
+              (2.1) 是否更新组件，返回 true， 则会更新，否则不更新 <br>
+              (2.2) 首次渲染或使用 forceUpdate() 时不会调用该方法 <br>
+              (2.3) 此方法仅作为"性能优化"的方式存在，不要企图依靠此方法来"阻止"渲染，因为这可能产生 bug <br>
+              (2.4) 应该考虑使用 PureComponent 组件，而不是手动编写 shouldComponentUpdate(), PureComponent 会对 props 和 state 进行浅层比较，并减少了跳过必要更新的可能性<br>
          
          ```
          shouldComponentUpdate(nextProps, nextState) {
