@@ -119,8 +119,19 @@ self-study react and summarize
    ##### (3.7) 生命周期:
    <br> 生命周期是一些函数，目的是在使得可以在正确的时机做正确的事，以下是 依次执行 的生命周期
    * constructor: <br>
-         (1) render 中渲染使用 state 时使用，如果当前 组件 没有用到 state, 可以不写<br>
-         (2) 主要是 初始化 render 时调用，只执行一次，init state 在这里执行
+         (1) 如果不初始化 state 或不进行方法绑定，则不需要为 react 组件实现构造函数<br>
+         (2) 在 react 组件挂载之前,会调用它的构造函数。在为 React.Component 子类实现构造函数时，需要在前面加入 super(props)， 否则可能会出现 this.props 为定义的 bug <br>
+         (3) 在 constructor 中不能调用 setState 方法, 只能进行 state 的初始化
+         (4) 注意： 避免一个常见的错误，将 props 的值赋值给 state, 这是不允许的， 可以在render 中直接使用 this.props.color<br>
+         
+         ```
+         constructor(props) {
+          super(props);
+          // 不要这样做
+          this.state = { color: props.color };
+         }
+         ```
+         
    * componentWillMount: <br>
          (1) 在 constructor 之后执行，只执行一次   <br>
          (2) 是唯一一个在服务端渲染时执行 hook 的函数   <br>
