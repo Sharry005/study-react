@@ -190,6 +190,7 @@ self-study react and summarize
   #### 5. 受控组件和非受控组件<br>
    (1) 受控组件：<br> 
            render 中 (input) 渲染的 value 值，在 state 中获取，然后通过触发事件 (onChange) 来修改 state 的 value 中， render 再次进行重新获取  value 值，这样形成的循环回路影响，就是受控组件。因为 react 负责渲染的表单，仍然可以控制用户后续输入时所发生的变化。<br>
+           [受控组件执行情况readme.md](https://codesandbox.io/s/5kl5z1mjjk) <br>
    (2) 非受控组件 <br>
          非受控是指不需要设置它的 state 属性， 而是通过 Ref 来操作真实的 DOM。<br>
    [非受控组件简单示例](https://codesandbox.io/s/5kl5z1mjjk)
